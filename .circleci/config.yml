@@ -29,10 +29,7 @@ jobs:
 
     steps:
       - checkout
-
-      # run tests!
-      - run: npm --version
-      - run: ./gradlew --stop
+      - setup_remote_docker
       - run: ./gradlew --no-daemon --max-workers 2 -x check install --stacktrace --info
       - docker-publish/check
       - run: ./gradlew docker:officialPush
