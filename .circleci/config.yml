@@ -26,5 +26,6 @@ jobs:
       - checkout
 
       # run tests!
+      - run: npm --version
       - run: ./gradlew --stop
       - run: ./gradlew -x check install --stacktrace --info --no-daemon
