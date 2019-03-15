@@ -2,7 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
+
+orbs:
+  docker-publish: circleci/docker-publish@0.1.6
+
 jobs:
   build:
     docker:
@@ -19,7 +23,7 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       GRADLE_OPTS: -Xmx1024m -XX:MaxPermSize=192m
-      _JAVA_OPTIONS: "-Xmx3072m"
+      _JAVA_OPTIONS: "-Xmx1024m"
       TERM: dumb
       BASH_ENV: ~/.bash_profile
 
@@ -30,3 +34,5 @@ jobs:
       - run: npm --version
       - run: ./gradlew --stop
       - run: ./gradlew --no-daemon --max-workers 2 -x check install --stacktrace --info
+      - docker-publish/check
+      - run: ./gradlew docker:officialPush
