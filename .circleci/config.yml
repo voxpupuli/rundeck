@@ -19,7 +19,7 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       GRADLE_OPTS: -Xmx1024m -XX:MaxPermSize=192m
-      # JVM_OPTS: -Xmx3200m
+      JVM_OPTS: -Xmx3200m
       TERM: dumb
       BASH_ENV: ~/.bash_profile
 
@@ -29,4 +29,4 @@ jobs:
       # run tests!
       - run: npm --version
       - run: ./gradlew --stop
-      - run: ./gradlew -x check install --stacktrace --info --no-daemon
+      - run: ./gradlew --no-daemon -x check install --stacktrace --info
