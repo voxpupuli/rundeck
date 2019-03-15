@@ -19,7 +19,7 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       GRADLE_OPTS: -Xmx1024m -XX:MaxPermSize=192m
-      _JAVA_OPTIONS: "-Xmx1024m"
+      _JAVA_OPTIONS: "-Xmx3072m"
       TERM: dumb
       BASH_ENV: ~/.bash_profile
 
