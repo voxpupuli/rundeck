@@ -29,4 +29,4 @@ jobs:
       # run tests!
       - run: npm --version
       - run: ./gradlew --stop
-      - run: ./gradlew --no-daemon -x check install --stacktrace --info
+      - run: ./gradlew --no-daemon --max-workers 2 -x check install --stacktrace --info
