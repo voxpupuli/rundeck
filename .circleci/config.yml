@@ -26,4 +26,5 @@ jobs:
       - checkout
 
       # run tests!
-      - run: ./gradlew -x check install --stacktrace
+      - run: ./gradlew --stop
+      - run: ./gradlew -x check install --stacktrace --info --no-daemon
