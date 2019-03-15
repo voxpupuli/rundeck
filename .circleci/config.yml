@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: rundeck/ci@sha256:5b4b5fb54a50aa6806072a44a442b466098e128449f4af6c799b288e3c88c18b
+      - image: rundeck/ci@sha256:05ef8328ad81f80efa6feac188a570444c2b7b6a935c88cbaa82240326fbe227
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
