@@ -18,6 +18,7 @@ jobs:
 
     environment:
       # Customize the JVM maximum heap limit
+      GRADLE_OPTS: -Xmx2048m -Dorg.gradle.daemon=false
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
@@ -25,5 +26,4 @@ jobs:
       - checkout
 
       # run tests!
-      - run: ./gradlew -x check install
-
+      - run: ./gradlew -x check install --stacktrace
