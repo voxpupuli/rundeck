@@ -11,7 +11,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: rundeck/ci@sha256:765937126b097335f989048506127b3c949757579186a7bccea6f15c33d1fd8b
+      - image: rundeck/ci@sha256:ec8e901dde6e46e96d2b79795f3dfc7c895d02ae2a956dbc4b1eae2dd142c066
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -31,5 +31,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: ./gradlew --no-daemon --max-workers 2 -x check install --stacktrace --info
+      - run: groovy testbuild.groovy --buildType=development
+      - run: make ENV=development rpm deb
       - docker-publish/check
       - run: ./gradlew docker:officialPush
